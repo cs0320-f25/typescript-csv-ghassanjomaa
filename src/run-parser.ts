@@ -12,10 +12,13 @@ async function main() {
 
   // Notice the difference between "of" and "in". One iterates over the entries, 
   // another iterates over the indexes only.
-  for(const record of results)
-    console.log(record)
-  for(const record in results)
-    console.log(record)
+  if (results.header) {
+    console.log("Header:", results.header);
+  }
+
+  for(const record of results.data as string[][]) {
+    console.log("Row:", record);
+  }
 }
 
 main();

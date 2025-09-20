@@ -16,10 +16,7 @@ import { ZodType } from "zod";
  * @returns a "promise" to produce a 2-d array of cell values
  */
 
-export async function parseCSV<T>(
-  path: string,
-  schema?: ZodType<T>
-): Promise<T[] | string[][]> {
+export async function parseCSV<T>(path: string, schema?: ZodType<T>): Promise<T[] | string[][]> {
   const fileStream = fs.createReadStream(path);
   const rl = readline.createInterface({
     input: fileStream,
